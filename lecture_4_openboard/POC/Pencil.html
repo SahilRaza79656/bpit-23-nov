@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+    </style>
+
+    
+</head>
+<body>
+  <canvas class="board"></canvas>  
+  <script>
+      let canvas= document.querySelector(".board");
+      canvas.height= window.innerHeight;
+      canvas.width= window.innerWidth;
+      let tool= canvas.getContext("2d");
+    //   tool.fillStyle="blue";
+    //   tool.fillRect(0,0,100,100);
+    //   tool.fillStyle="green";
+    //   tool.fillRect(100,100,100,100);
+    //   tool.strokestyle="orange";
+    //   tool.lineWidth=10;
+    //   tool.stokeRect(100,100,100,100);
+    //   // start drawing
+    //   tool.beginPath();
+    //   tool.moveTo(20,20);
+    //   tool.lineTo(100,100);
+    //   tool.stroke();
+    let initialMouseX=null;
+    let initialMouseY=null;
+    let isMouseDown=false;
+    tool.strokestyle="blue";
+
+      window.addEventListener("mousedown",  function onmouseDown(obj){
+            initialMouseX=obj.clientX;
+            initialMouseY=obj.clientY;
+            isMouseDown=true;
+            tool.beginPath();
+            tool.moveTo(initialMouseX, initialMouseY);
+       } )
+       window.addEventListener("mousemove",function(e){
+            let finalMouseX= e.clientX;
+            let finalMouseY= e.clientY;
+            if(isMouseDown==true){
+                tool.lineTo(finalMouseX, finalMouseY);
+                tool.stroke();
+            }
+       })
+       window.addEventListener("mouseup", function(obj){
+           isMouseDown=false;
+       })
+  </script>
+    
+</body>
+</html>

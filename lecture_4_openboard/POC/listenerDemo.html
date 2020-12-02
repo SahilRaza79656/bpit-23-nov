@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       window.addEventListener("mousedown", onmouseDown);
+       function onmouseDown(obj){
+           console.log("mouse down occured", Math.random());
+           console.log("mouse down desc", obj);
+       } 
+       window.addEventListener("mouseup",function(obj){
+           console.log("mouse up occured", Math.random());
+           console.log("mouse up desc", obj);
+       })
+    </script>
+</body>
+</html>
